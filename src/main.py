@@ -4,21 +4,21 @@ from downloader import Downloader
 bot = Bot(token=tokenbot)
 dp = Dispatcher(bot)
 
+@dp.message_handler(commands=['start'])
+async def send_welcome(message: types.Message):
+    try:
+        await message.reply(f'Welcome, {message.chat.first_name}!Send a link to the video.\n')
+    except Exception as ex:
+        print(ex)
 
 @dp.message_handler()
-async def handle_message(message: aiogram.types.Message):
+async def handle_message(message: types.Message):
     try:
-        if message.text.startswith('http') and message.text.__len__() > 0:
-            
-            video_url = message.text
-            video_name = str(uuid.uuid4())
+        if message.text.startswith('http') or message.text.__len__() > 0:
+            video = Video(message.text, "mp4")
             dw = Downloader()
-            dw.download_video(video_url, video_name + ".mp4")
-
-            with open(video_name + '.mp4', 'rb') as video:
-                await bot.send_video(message.chat.id, video)
-            
-            os.remove(video_name + '.mp4')
+            dw.download_video(video.url, video.path)
+            await bot.send_video(message.chat.id, video.get_video())
         else:
             await bot.send_message(message.chat.id, "The link is incorrect.")
 
