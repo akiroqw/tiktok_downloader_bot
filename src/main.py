@@ -1,13 +1,14 @@
 from config import *
 from downloader import Downloader
+from video import Video
 
-bot = Bot(token=tokenbot)
+bot = Bot(token=tokenbot) # Token from the config file!!!
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     try:
-        await message.reply(f'Welcome, {message.chat.first_name}!Send a link to the video.\n')
+        await message.reply(f'Hello 👋🏻, {message.chat.first_name}! I can download videos from TikTok without a watermark. First of all, send me a link.\n')
     except Exception as ex:
         print(ex)
 
@@ -15,10 +16,13 @@ async def send_welcome(message: types.Message):
 async def handle_message(message: types.Message):
     try:
         if message.text.startswith('http') or message.text.__len__() > 0:
-            video = Video(message.text, "mp4")
+
+            video = Video(message.text, str(uuid.uuid4()), "mp4")
             dw = Downloader()
             dw.download_video(video.url, video.path)
-            await bot.send_video(message.chat.id, video.get_video())
+
+            with open(video.path, 'rb') as vd:
+                await bot.send_video(message.chat.id, vd)
         else:
             await bot.send_message(message.chat.id, "The link is incorrect.")
 
