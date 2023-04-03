@@ -1,5 +1,5 @@
 from config import *
-from logic import downloader
+from downloader import Downloader
 
 bot = Bot(token=tokenbot)
 dp = Dispatcher(bot)
@@ -12,7 +12,7 @@ async def handle_message(message: aiogram.types.Message):
             
             video_url = message.text
             video_name = str(uuid.uuid4())
-            dw = downloader()
+            dw = Downloader()
             dw.download_video(video_url, video_name + ".mp4")
 
             with open(video_name + '.mp4', 'rb') as video:

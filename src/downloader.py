@@ -1,6 +1,6 @@
 from config import *
 
-class downloader:
+class Downloader:
 
     def __init__(self):
         pass
