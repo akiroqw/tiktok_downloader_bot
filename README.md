@@ -20,7 +20,24 @@ TOKEN = ""
 API_ID = ""
 API_HASH = ""
 ```
+* or you can insert the token, api_hash, and api_id here(src/config.py):
+```py
+apiid = ""
+apihash = ""
+tokenbot = ""
+```
 4. Run script
 ```
 $ py src/main.py
 ```
+
+## Usage
+
+To download the video, send the bot a link to the video with a watermark. The bot will process the link and send the video to the user without a watermark.
+The bot also has a `/start` command that greets the user.
+
+## Restrictions
+
+The bot only works with videos from tiktok, which are available for download without authorization and are not copyrighted. Also, the bot may have restrictions on downloading videos from some sites.
+
+This Telegram bot can be useful for those who want to download videos without watermarks from TikTok. The bot does not have an interface, just send a link to a video with a watermark. And it will send the video without watermark.
