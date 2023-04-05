@@ -2,7 +2,7 @@ from config import *
 from downloader import Downloader
 from video import Video
 
-bot = Bot(token=tokenbot) # Token from the config file!!!
+bot = Bot(token=tokenbot)
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
