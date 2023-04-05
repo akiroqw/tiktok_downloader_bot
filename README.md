@@ -10,23 +10,23 @@ This Telegram bot was created to download videos without a watermark. The bot is
 $ git clone https://github.com/akiroqw/TikTokDownloader.git
 $ cd TikTokDownloaderBot
 ```
-Install the necessary libraries using the requirements.txt
+* Install the necessary libraries using the requirements.txt
 ```
-  $ pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
-3. Create a file .env in the src folder where the token, api_hash and api_id will be located
+* Create a file .env in the src folder where the token, api_hash and api_id will be located
 ```py
 TOKEN = ""
 API_ID = ""
 API_HASH = ""
 ```
-or you can insert the token, api_hash, and api_id here(src/config.py):
+* or you can insert the token, api_hash, and api_id here(src/config.py):
 ```py
 apiid = ""
 apihash = ""
 tokenbot = ""
 ```
-4. Run script
+* Run script
 ```
 $ py src/main.py
 ```
