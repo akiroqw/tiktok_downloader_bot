@@ -3,14 +3,14 @@
 This Telegram bot was created to download videos without a watermark. The bot is written in the Python programming language and uses the Telebot library to interact with the Telegram API.
 
 ## Installation
-1. Create a bot in Telegram using BotFather and copy the token.
-2. Go to the website my.telegram.org and get api_id and api_hash
-3. Clone repository
+* Create a bot in Telegram using BotFather and copy the token.
+* Go to the website my.telegram.org and get api_id and api_hash
+* Clone repository
 ```
 $ git clone https://github.com/akiroqw/TikTokDownloader.git
 $ cd TikTokDownloaderBot
 ```
-2. Install the necessary libraries using the requirements.txt
+Install the necessary libraries using the requirements.txt
 ```
   $ pip install -r requirements.txt
 ```
