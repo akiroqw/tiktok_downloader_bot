@@ -1,4 +1,4 @@
-# TikTokDownloader
+# tiktok_downloader_bot
 
 This Telegram bot was created to download videos without a watermark. The bot is written in the Python programming language and uses the Telebot library to interact with the Telegram API.
 
